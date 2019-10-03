@@ -1,6 +1,6 @@
 ARG BASE_IMAGE=ubuntu:19.04
 FROM $BASE_IMAGE
-MAINTAINER Phusion <info@phusion.nl>
+MAINTAINER charescape <charescape@outlook.com>
 
 ARG QEMU_ARCH
 ADD x86_64_qemu-${QEMU_ARCH}-static.tar.gz /usr/bin
