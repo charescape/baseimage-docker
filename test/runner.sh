@@ -15,7 +15,7 @@ function cleanup()
 }
 
 echo " --> Starting insecure container"
-ID=`docker run -d -p 22 $NAME:$VERSION /sbin/uc_init --enable-insecure-key`
+ID=`docker run -d -p 22 $NAME:$VERSION /sbin/my_init --enable-insecure-key`
 sleep 1
 
 echo " --> Obtaining SSH port number"
@@ -27,7 +27,7 @@ fi
 trap cleanup EXIT
 
 echo " --> Enabling SSH in the container"
-docker exec $ID /etc/uc_init.d/00_regen_ssh_host_keys.sh -f
+docker exec $ID /etc/my_init.d/00_regen_ssh_host_keys.sh -f
 docker exec $ID rm /etc/service/sshd/down
 docker exec $ID sv start /etc/service/sshd
 sleep 1
