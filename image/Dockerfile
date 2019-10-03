@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=ubuntu:19.04
+ARG BASE_IMAGE=ubuntu:18.10
 FROM $BASE_IMAGE
 MAINTAINER charescape <charescape@outlook.com>
 
