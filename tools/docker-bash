@@ -22,8 +22,8 @@ shift
 
 PID=`docker inspect -f "{{ .State.Pid }}" "$CONTAINER_ID"`
 if test $# = 0; then
-	exec docker exec -ti "$CONTAINER_ID" bash -l
+	exec "$SELFDIR/baseimage-docker-nsenter" --target "$PID" --mount --uts --ipc --net --pid -- /bin/bash -l
 else
-	exec docker exec -ti "$CONTAINER_ID" "$@"
+	exec "$SELFDIR/baseimage-docker-nsenter" --target "$PID" --mount --uts --ipc --net --pid -- "$@"
 fi
 
